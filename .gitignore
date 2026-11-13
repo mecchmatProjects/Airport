@@ -1,0 +1,16 @@
+# CLion and CMake build folders
+cmake-build-*/
+.idea/
+
+# macOS system files
+.DS_Store
+
+# Compiled C++ binaries and object files
+*.exe
+*.out
+*.o
+*.obj
+*.app
+
+# Specific single-file test executables
+jsonlib_activation_test
