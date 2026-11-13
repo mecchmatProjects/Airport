@@ -1,9 +1,9 @@
 #include <fstream>
 #include <stdexcept>
 
-#include "data/json_reader.h"
-#include "models/json.h"
-#include "json.hpp"
+#include <data/json_reader.h>
+#include <models/json.h>
+#include <json.hpp>
 using json = nlohmann::json;
 
 void json_to_Data( const json& j, Data& d ) {

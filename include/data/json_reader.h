@@ -1,8 +1,8 @@
 #ifndef AIRPORT_JSON_READER_H
 #define AIRPORT_JSON_READER_H
 
-#include <include/json.hpp>
-#include <include/models/json.h>
+#include <json.hpp>
+#include <models/json.h>
 using json = nlohmann::json;
 
 JsonDataset read_json_file(const std::string& filename);
