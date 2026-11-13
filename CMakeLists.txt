@@ -18,3 +18,5 @@ add_executable(
         src/data/json_reader.cpp
 )
 target_include_directories(json_reader_test PRIVATE include)
+
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/Data DESTINATION ${CMAKE_CURRENT_BINARY_DIR})

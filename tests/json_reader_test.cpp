@@ -3,7 +3,7 @@
 #include <data/json_reader.h>
 
 int main() {
-    const std::string filepath = "Airport/Data/NewInstances/small_p8_h60_r1.json";
+    const std::string filepath = "Data/NewInstances/small_p8_h60_r1.json";
 
     try {
         JsonDataset dataset = read_json_file(filepath);
