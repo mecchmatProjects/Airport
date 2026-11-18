@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <stdexcept>
 #include <vector>
 #include <cassert>
 #include "../include/models/algorithm.h"
@@ -14,7 +15,7 @@
 
 int tests() {
     std::cout<< "starting tests of TAP solver algorithm" << std::endl;
-    const std::string json_filename = "../Data/NewInstances/small_p8_h60_r1.json";
+    const std::string json_filename = "../Data/NewInstances/lge1_p60_h8_r1.json";
     const std::string csv_od_pen_filename = "../include/data/cvs_data/Table1 - OD pairs & Reassignment penalty.csv";
     const std::string csv_maint_filename = "../include/data/cvs_data/Table1 - Maintenance Type A Cost.csv";
 
@@ -31,6 +32,19 @@ int tests() {
         std::cout << "\n=== Test Results ===\n";
         std::cout << "Total flights successfully assigned: " << schedule.size()
                   << " out of " << json_data.flights.size() << "\n\n";
+
+        print_gantt_ascii(schedule);
+        if (!write_gantt_mermaid(schedule, "schedule.mmd")) {
+            throw std::runtime_error("Unable to write schedule.mmd");
+        }
+        if (!write_gantt_svg(schedule, "schedule.svg")) {
+            throw std::runtime_error("Unable to write schedule.svg");
+        }
+        if (!write_gantt_html(schedule, "schedule.html")) {
+            throw std::runtime_error("Unable to write schedule.html");
+        }
+        std::cout << "\nGantt outputs written to schedule.html, schedule.svg and schedule.mmd"
+                  << "\nOpen schedule.html for the interactive daily view.\n";
 
         int print_limit = std::min(10, (int)schedule.size());
         for (int i = 0; i < print_limit; ++i) {
