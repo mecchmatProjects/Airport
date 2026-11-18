@@ -20,3 +20,17 @@ add_executable(
 target_include_directories(json_reader_test PRIVATE include)
 
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/Data DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+
+add_executable(
+        excel_reader_test
+        tests/excel_reader_test.cpp
+        src/data/excel_reader.cpp
+)
+target_include_directories(excel_reader_test PRIVATE include)
+
+add_executable(algorithm_test
+                tests/algorithm_test.cpp
+                src/algorithm.cpp
+                src/data/json_reader.cpp
+                src/data/excel_reader.cpp)
+target_include_directories(algorithm_test PRIVATE include)
