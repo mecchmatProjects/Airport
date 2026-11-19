@@ -22,7 +22,7 @@ int get_penalty_for_flight(const std::string& origin,
                            const std::string& destination,
                            int day,
                            const std::vector<OD_pairs_and_Penalties>& od_list);
-int get_day(const std::vector<OD_pairs_and_Penalties>& od_list);
+int get_day(const std::vector<OD_pairs_and_Penalties>& od_list, const Flights &flight);
 void get_data_json(const char* filename);
 void get_data_csv(const std::string& od_filename, const std::string& maint_filename);
 std::vector<FlightAssignment> algorithm_tap(JsonDataset data, const std::vector<OD_pairs_and_Penalties>& od_list, const Maintenance& maintenance);

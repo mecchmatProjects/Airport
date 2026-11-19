@@ -27,3 +27,19 @@ add_executable(
         src/data/excel_reader.cpp
 )
 target_include_directories(excel_reader_test PRIVATE include)
+
+add_executable(algorithm_test
+        tests/algorithm_test.cpp
+        src/algorithm.cpp
+        src/data/json_reader.cpp
+        src/data/excel_reader.cpp)
+target_include_directories(algorithm_test PRIVATE include)
+
+add_executable(gantt_test
+                tests/gantt_test.cpp
+                src/gantt.cpp
+        src/algorithm.cpp
+        src/data/json_reader.cpp
+        src/data/excel_reader.cpp
+        tests/gantt_test.cpp)
+target_include_directories(gantt_test PRIVATE include)
