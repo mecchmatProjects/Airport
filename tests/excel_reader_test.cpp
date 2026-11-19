@@ -3,9 +3,9 @@
 #include <models/csv.h>
 
 void excel_reader_test() {
-    const std::string filename1 = "../include/data/cvs_data/Table1 - Maintenance Type A Cost.csv";
-    const std::string filename2 = "../include/data/cvs_data/Table1 - OD pairs & Reassignment penalty.csv";
-    const std::string filename3 = "../include/data/cvs_data/Table1 - Results.csv";
+    const std::string filename1 = "Airport/include/data/cvs_data/Table1 - Maintenance Type A Cost.csv";
+    const std::string filename2 = "Airport/include/data/cvs_data/Table1 - OD pairs & Reassignment penalty.csv";
+    const std::string filename3 = "Airport/include/data/cvs_data/Table1 - Results.csv";
 
     try {
         std::vector<OD_pairs_and_Penalties> od_pairs;
