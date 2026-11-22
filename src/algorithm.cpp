@@ -43,7 +43,7 @@ int get_day(const std::vector<OD_pairs_and_Penalties>& od_list, const Flights &f
     return day_index % 8;
 }
 
-void get_data_json(const char* filename) {
+JsonDataset get_data_json(const std::string& filename) {
     JsonDataset data = read_json_file(filename);
 }
 
