@@ -58,7 +58,7 @@ int main() {
             try {
                 std::string stem = std::filesystem::path(file_json).stem().string();
                 std::string out_prefix = "schedule_" + stem + "_" + table_tag;
-                JsonDataset json_data = get_data_json(file_json);           //check some more this, here is a mistake 
+                JsonDataset json_data = read_json_file(file_json);    //check some more this, here is a mistake
                 std::vector<FlightAssignment> schedule = algorithm_tap(json_data, od_table, maintenance);
 
                 write_gantt_mermaid(schedule, out_prefix + ".mmd");
