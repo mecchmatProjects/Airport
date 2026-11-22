@@ -33,14 +33,14 @@ std::vector<std::string> get_file_names(const std::filesystem::path& folder_path
 
 int main() {
     //basic data input//
-    std::vector<std::string> json_files = get_file_names("../Data/NewInstances", ".json");
+    std::vector<std::string> json_files = get_file_names("Data/NewInstances", ".json");
 
-    std::vector<std::string> csv_od_pairs = {"../include/data/cvs_data/Table1 - OD pairs & Reassignment penalty.csv",
-        "../include/data/cvs_data/Table 2 - OD pairs & Reassignment penalty.csv",
-        "../include/data/cvs_data/Table 3 - OD pairs & Reassignment penalty.csv"};
-    std::vector<std::string> csv_maint = {"../include/data/cvs_data/Table1 - Maintenance Type A Cost.csv",
-        "../include/data/cvs_data/Table 2 - Maintenance Type A Cost.csv",
-        "../include/data/cvs_data/Table 3 - Maintenance Type A Cost.csv"};
+    std::vector<std::string> csv_od_pairs = {"include/data/cvs_data/Table1 - OD pairs & Reassignment penalty.csv",
+        "include/data/cvs_data/Table 2 - OD pairs & Reassignment penalty.csv",
+        "include/data/cvs_data/Table 3 - OD pairs & Reassignment penalty.csv"};
+    std::vector<std::string> csv_maint = {"include/data/cvs_data/Table1 - Maintenance Type A Cost.csv",
+        "include/data/cvs_data/Table 2 - Maintenance Type A Cost.csv",
+        "include/data/cvs_data/Table 3 - Maintenance Type A Cost.csv"};
 
     const size_t num_tables = std::min(csv_od_pairs.size(), csv_maint.size());
 

@@ -14,9 +14,9 @@
 #include "../include/models/gantt.h"
 int tests() {
     std::cout<< "starting tests of Gantt diagram visualisation" << std::endl;
-    const std::string json_filename = "../Data/NewInstances/med6_p20_h180_r1 (1).json";
-    const std::string csv_od_pen_filename = "../include/data/cvs_data/Table1 - OD pairs & Reassignment penalty.csv";
-    const std::string csv_maint_filename = "../include/data/cvs_data/Table1 - Maintenance Type A Cost.csv";
+    const std::string json_filename = "Data/NewInstances/med6_p20_h180_r1 (1).json";
+    const std::string csv_od_pen_filename = "include/data/cvs_data/Table1 - OD pairs & Reassignment penalty.csv";
+    const std::string csv_maint_filename = "include/data/cvs_data/Table1 - Maintenance Type A Cost.csv";
 
     try {
         JsonDataset json_data = read_json_file(json_filename);

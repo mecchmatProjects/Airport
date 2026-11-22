@@ -40,8 +40,7 @@ add_executable(gantt_test
                 src/gantt.cpp
                 src/algorithm.cpp
                 src/data/json_reader.cpp
-                src/data/excel_reader.cpp
-                tests/gantt_test.cpp)
+                src/data/excel_reader.cpp)
 target_include_directories(gantt_test PRIVATE include)
 
 
