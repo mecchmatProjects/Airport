@@ -27,3 +27,21 @@ add_executable(
         src/data/excel_reader.cpp
 )
 target_include_directories(excel_reader_test PRIVATE include)
+
+add_executable(
+        algorithm_test
+        tests/algorithm_test.cpp
+        src/algorithm.cpp
+        src/maintenance_scheduler.cpp
+        src/gantt.cpp
+        src/data/json_reader.cpp
+        src/data/excel_reader.cpp
+)
+target_include_directories(algorithm_test PRIVATE include)
+
+add_executable(
+        maintenance_schedule_test
+        tests/maintenance_schedule_test.cpp
+        src/maintenance_scheduler.cpp
+)
+target_include_directories(maintenance_schedule_test PRIVATE include)

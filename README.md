@@ -9,7 +9,7 @@ Tasks:
 - Represent output as Gantt diagrams.
 
 
-- `schedule.html`: interactive daily Gantt dashboard with a day selector, readable timeline, flight labels, and a flight details table. Open this file in a browser.
+- `schedule.html`: interactive daily Gantt dashboard with a day selector, flight and maintenance bars, and a schedule table. Amber bars show planned maintenance; red markers show checks that could not fit before the next flight. Open this file in a browser.
 - `schedule.svg`: standalone SVG overview of the complete schedule.
 - `schedule.mmd`: Mermaid Gantt chart source.
 

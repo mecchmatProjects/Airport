@@ -6,6 +6,7 @@
 #include <stdexcept>
 #include <vector>
 #include <cassert>
+#include <algorithm>
 #include "../include/models/algorithm.h"
 #include "../include/models/json.h"
 #include "../include/models/csv.h"
@@ -15,7 +16,7 @@
 
 int tests() {
     std::cout<< "starting tests of TAP solver algorithm" << std::endl;
-    const std::string json_filename = "../Data/NewInstances/lge1_p60_h8_r1.json";
+    const std::string json_filename = "../Data/NewInstances/lge1_p60_h180_r1.json";
     const std::string csv_od_pen_filename = "../include/data/cvs_data/Table1 - OD pairs & Reassignment penalty.csv";
     const std::string csv_maint_filename = "../include/data/cvs_data/Table1 - Maintenance Type A Cost.csv";
 
@@ -28,10 +29,18 @@ int tests() {
         csv_to_Maintenance(csv_maint_filename, maintenance);
 
         std::vector<FlightAssignment> schedule = algorithm_tap(json_data, od_list, maintenance);
+        std::vector<MaintenanceAssignment> maintenance_schedule =
+            plan_maintenance(json_data, schedule);
 
         std::cout << "\n=== Test Results ===\n";
         std::cout << "Total flights successfully assigned: " << schedule.size()
                   << " out of " << json_data.flights.size() << "\n\n";
+        const auto scheduled_maintenance = std::count_if(
+            maintenance_schedule.begin(), maintenance_schedule.end(),
+            [](const MaintenanceAssignment& item) { return item.scheduled; });
+        std::cout << "Maintenance checks scheduled: " << scheduled_maintenance << "\n"
+                  << "Maintenance conflicts: " << maintenance_schedule.size() - scheduled_maintenance
+                  << "\n\n";
 
         print_gantt_ascii(schedule);
         if (!write_gantt_mermaid(schedule, "schedule.mmd")) {
@@ -40,7 +49,8 @@ int tests() {
         if (!write_gantt_svg(schedule, "schedule.svg")) {
             throw std::runtime_error("Unable to write schedule.svg");
         }
-        if (!write_gantt_html(schedule, "schedule.html")) {
+        if (!write_gantt_html(schedule, "schedule.html", maintenance_schedule,
+                              json_data.aircraft, json_data.parameters.Target_Horizon_Days)) {
             throw std::runtime_error("Unable to write schedule.html");
         }
         std::cout << "\nGantt outputs written to schedule.html, schedule.svg and schedule.mmd"
@@ -70,5 +80,5 @@ int tests() {
 
 
 int main() {
-    tests();
+    return tests();
 }
